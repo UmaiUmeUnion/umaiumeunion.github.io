@@ -4,6 +4,13 @@ This is the source of UmaiUme's webpages made with the help of Jekyll.
 
 ## How to edit (for contributors)
 
+**Make pull requests!** Of course, if you are a member, you can push to this repository.
+However, if you don't have [Jekyll](http://www.jekyllrb.com) installed, it's advised that you create a pull
+request and let someone with Jekyll to test how the page looks.
+
+First of all, you can test how the pages work by running it locally through [Jekyll](http://www.jekyllrb.com).
+Not only that, but you **should** do that before creating a pull request.
+
 ### Writing dev news (posts)
 Just create a new .md file into `_posts` folder. Use the existing posts as examples.
 Full GitHub flavoured Markdown is supported, but you can also add HTML and Liquid tags.
