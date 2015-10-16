@@ -1,0 +1,18 @@
+{% include header.html %}
+
+<div class="jumbotron" style="margin-top: -10px;">
+	<div class="container">
+		<img src="{{ site.baseurl }}/images/logo.png" style="width: auto; height: 120px;" />
+		<div>
+			{% capture intro %}{% include intro.md %}{% endcapture %}
+			{{ intro | markdownify }}
+		</div>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+		{{ content }}
+    </div>
+</div>
+
+{% include footer.html %}

@@ -1,0 +1,33 @@
+
+name: UmaiUme
+description: "The official pages of UmaiUme: Unified modding application interface for Unity-made eroge"
+
+baseurl: ''
+
+collections:
+    guides_reipatcher:
+     output: true
+
+defaults:
+ - scope:
+    path: ""
+    type: guides_reipatcher
+   values:
+     layout: guiderei
+
+gaaccount: ''
+github: 'UmaiUmeUnion'
+
+paginate_path: /devnews/page:num/
+permalink: /devnews/:year/:month/:title
+paginate: 5
+
+highlighter: pygments
+markdown: kramdown
+kramdown:
+   input: GFM
+   parse_block_html: true
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "smart", "lax_spacing"]
+
+exclude: ['README.md', 'LICENSE']
