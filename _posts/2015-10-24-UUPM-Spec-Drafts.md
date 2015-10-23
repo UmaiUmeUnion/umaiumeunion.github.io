@@ -103,6 +103,6 @@ To keep it simple and fair, here is what I propose:
 1. Every tool built within UmaiUme Union shall be published under either the MIT or The Unilicense. That is, if the member of UmaiUme Union posts the code on UmaiUme's repository, it must include either of the two licenses.
 2. Every external tool or module built for UUPM can be licensed in any way the original developer wants, as long as it permits the use of such tool in UUPM. That means that if the tool or some assembly for UUPM does not allow it to be distributed with UUPM, it may not be included in the official UmaiUme bundle or the public UmaiUme package repository (if there will be one).
 
-Of course that would create an issue for example with ReiPatcher, which has no license. That, however, can be easily resolved by either simply redirecting people to install the tool manually or getting the permission to include the tool in UmaiUme from **usagirei**.
+Of course that would create an issue for example with those, which have no license or have explicitly forbidden redistribution. In that case all we have to do is simply to redirect users to install the tool from its original source.
 
 All in all, I think this is the most fair solution for all of us.
