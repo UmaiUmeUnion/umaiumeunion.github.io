@@ -15,7 +15,7 @@ defaults:
    values:
      layout: guiderei
 
-gaaccount: ''
+gaaccount: 'UA-69224475-1'
 github: 'UmaiUmeUnion'
 
 paginate_path: /devnews/page:num/
