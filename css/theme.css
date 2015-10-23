@@ -4,12 +4,20 @@ body {
 }
 
 .navbar-brand {
-	padding-top: 5px;
+	padding-top: 7.5px;
 }
 
 .navbar-brand>img {
 	width: auto; 
-	height: 40px;
+	height: 35px;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	transition: opacity 200ms;
+}
+
+.navbar-brand>img:hover {
+	opacity: 0.80;
 }
 
 .navbar-inverse {

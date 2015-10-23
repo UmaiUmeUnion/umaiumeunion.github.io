@@ -1,7 +1,7 @@
 
 name: UmaiUme
 description: "The official pages of UmaiUme: Unified modding application interface for Unity-made eroge"
-
+excerpt_separator: <!--more-->
 baseurl: ''
 
 collections:
