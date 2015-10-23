@@ -36,11 +36,7 @@ UmaiUme is still in development.
 
 Here is a nice progress bar (roughly) specifying the progress:
 
-<div class="progress">
-<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%; background-color: #88A328">
-10%
-</div>
-</div>
+{% include progressbar.html percentage='15' %}
 
 To see more exact news concerning the development, visit the *Dev news* page.
 
