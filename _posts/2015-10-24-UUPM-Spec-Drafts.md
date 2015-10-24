@@ -48,7 +48,7 @@ UUPM also comes with an exposed API to provide support for any modding tools and
 
 #### **Front-end interface**
 
-The core of UUPM should be separated from the front-end to allow both CIL and GUI implementations. UmaiUme Union will provide an simple command-line interface to interact with **all** of UUPM functions.
+The core of UUPM should be separated from the front-end to allow both CLI and GUI implementations. UmaiUme Union will provide an simple command-line interface to interact with **all** of UUPM functions.
 
 #### **Modularity**
 
@@ -78,10 +78,15 @@ Users may edit the configurations manually through either an external text edito
 Currently, no format for configuration files has been decided upon, but it might be that UUPM will use some form of ExIni with additional syntax.
 Other possible formats are JSON and YAML.
 
-#### **Other features to consider**
+#### **Other features to consider and additional notes**
 
-* Being a package manager, we could consider implementing a package repository for UUPM. That way users could install mods by simply using the front-end of UUPM instead of downloading the packages one-by-one. However that would require to have a server(s) that would house the packages.
+* Being a package manager, we could consider implementing a package repository for UUPM. That way users could install mods by simply using the front-end of UUPM instead of downloading the packages one-by-one.
+	* To make hosting easier we might implement a simple server software anyone can download to automatically host a repository.
+	* We might consider either allowing server hosters to include their own packages or force the servers to share only approved packages. A certain type of a P2P protocol will be needed to share common (or approvied) packages. In the latter case a master server will also be needed to dictate which packages are considered approved.
+	* The core of a package repository will most likely be implemented with HTTP, but FTP is also an option. Packages would provide the information about themselves inside their configuration files. A master list should exist to keep track of all packages found on the repository.
+	* Most likely will be implemented either as an external module or part of the official UUPM CLI.
 * Currently UUPM is mainly aimed at games made in Unity Engine. However, the modularity of the core allows to create modules to install mods for any other game, as the game-dependent code is outsourced to the modules.
+* Implement `ModuleLUA` to allow control of UUPM core through LUA (or other scripting language). That way package developers could include their own package-specific installation modules.
 
 #### **Implementation**
 
@@ -106,3 +111,10 @@ To keep it simple and fair, here is what I propose:
 Of course that would create an issue for example with those, which have no license or have explicitly forbidden redistribution. In that case all we have to do is simply to redirect users to install the tool from its original source.
 
 All in all, I think this is the most fair solution for all of us.
+
+#### **Additional notes**
+
+Here are some notes regarding UmaiUme and external tools (updated actively)
+
+* We can distribute ReiPatcher and UnityInjector with UmaiUme itself (as long as **usagirei** is mentioned as the creator)
+* We can distribute SB3UGS as long as **enimaroah** and **Alamar** are mentioned along with the link to the release posts
