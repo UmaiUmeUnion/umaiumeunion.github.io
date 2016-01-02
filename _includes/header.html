@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ site.name }}</title>
+    <title>
+	  {{ site.name }}{% if page.pretitle != '' %} - {{ page.pretitle }}{% endif %}{% if page.title != '' %}: {{ page.title }}{% endif %}
+	</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
@@ -22,15 +24,16 @@
 		function(){
 			$(this).removeClass("active");
 		});
-		{% if include.anchor %}
+		//{% if include.anchor %}
 		anchors.add('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
-		{% endif %}
+		//{% endif %}
 		$("code.language-console").parent().css({
 			backgroundColor: "#000000"
 		});
-		$("span.go").css({
+		$("code.language-console>span.go").css({
 			color: "#C0C0C0"
 		});
+		$("code.language-console>span.gp").remove();
 	});
 	</script>
 </head>
@@ -39,6 +42,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                   <span class="sr-only">Toggle navigation</span>
@@ -57,8 +61,8 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guides <span class="caret"></span></a>
 						<ul class ="dropdown-menu">
-							<li><a href="{{ site.baseurl}}{{ site.guides_reipatcher[0].url}}">ReiPatcher (WIP)</a></li>
-							<li><a href="#">UnityInjector (Coming soon)</a></li>
+							<li><a href="{{ site.baseurl}}{{ site.guides_reipatcher[0].url}}">ReiPatcher</a></li>
+							<li><a href="{{ site.baseurl}}{{ site.guides_unityinjector[0].url}}">UnityInjector</a></li>
 							<li><a href="#">Mono.Cecil (Coming soon)</a></li>
 							<li><a href="#">SB3Utility (Coming soon)</a></li>
 						</ul>
@@ -69,6 +73,7 @@
                     {% endif %}
                 </ul>
               </div>
+        </div>
         </div>
     </div>
 </div>

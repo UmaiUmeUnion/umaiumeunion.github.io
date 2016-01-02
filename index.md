@@ -1,6 +1,6 @@
 ---
 layout: main
-title: "UmaiUme"
+pretitle: "Main page"
 ---
 
 <div markdown="1" class="col-md-4">

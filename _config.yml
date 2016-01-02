@@ -7,13 +7,36 @@ baseurl: ''
 collections:
     guides_reipatcher:
      output: true
+    guides_unityinjector:
+     output: true
 
 defaults:
- - scope:
+ - 
+   scope:
     path: ""
-    type: guides_reipatcher
    values:
-     layout: guiderei
+     pretitle: ""
+     title: ""
+ - 
+   scope:
+    path: ""
+    type: "guides_reipatcher"
+   values:
+     layout: "guide"
+     pretitle: "ReiPatcher Guide"
+ - 
+   scope:
+    path: ""
+    type: "guides_unityinjector"
+   values:
+     layout: "guide"
+     pretitle: "UnityInjector Guide"
+ -
+   scope:
+    path: ""
+    type: "posts"
+   values:
+     pretitle: "Development news"
 
 gaaccount: 'UA-69224475-1'
 github: 'UmaiUmeUnion'

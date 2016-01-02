@@ -1,0 +1,48 @@
+{% include header.html anchor='true' %}
+
+{% for post in site[page.collection] %}
+  {% if post.path == page.path %}
+    {% assign currentIndex = forloop.index0 | plus: 0 %}
+    {% assign previousIndex = forloop.index0 | minus: 1 %}
+    {% assign nextIndex = forloop.index0 | plus: 1 %}
+    {% assign collectionLength =  forloop.length | plus: 0 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<div class="container-fluid container-left">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar well">
+        {% if page.pretitle != '' %}
+        <h1>{{ page.pretitle}}</h1>
+        {% endif %}
+        <h2>Chapters</h2>
+				<ol>
+				{% for post in site[page.collection] %}
+				<li><a href="{{ site.baseurl}}{{ post.url }}">{% if post.path == page.path %}<b>{{ post.title }}</b>{% else %}{{ post.title }}{% endif %}</a></li>
+				{% endfor %}
+				</ol>
+			</div>
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+				<div class="post-content">
+         {{ page.content }}
+				</div>
+            </div>
+          </div>
+          <div class="pagination">
+              {% if previousIndex >= 0 %}
+                <a class="btn btn-default" href="{{ site.baseurl}}{{ site[page.collection][previousIndex].url }}" class="next"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{ site[page.collection][previousIndex].title }}</a>
+              {% endif %}
+              {% if nextIndex < collectionLength %}
+                <a class="btn btn-default" href="{{ site.baseurl}}{{ site[page.collection][nextIndex].url }}" class="previous">{{ site[page.collection][nextIndex].title }} <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+              {% endif %}
+		   </div>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}

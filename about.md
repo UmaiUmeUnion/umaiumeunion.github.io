@@ -1,5 +1,6 @@
 ---
 layout: default
+pretitle: "About"
 ---
 
 <div class="well">

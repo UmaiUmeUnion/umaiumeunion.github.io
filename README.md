@@ -15,8 +15,7 @@ Edit `header.html` in `_includes` folder. Use existing links as examples and gui
 ### Creating a new tutorial
 1. Create a new collection in `_config.yml` (use the definition of `guides_reipatcher`) as example.
 2. Create the folder for tutorial posts (again, use `guides_reipatcher` as an example).
-3. Create a new layout in `_layouts` folder for your guide. Use `guiderei.html` layout as an example. Especially remember to replace `site.guides_reipatcher` with the appropriate tutorial collection.
-4. Create your first post in the new folder. Remember to add reference the layout in the front matter. You can use ReiPatcher's guide as an example.
+4. Create your first post in the new folder. You can use ReiPatcher's guide as an example.
 
 ### Creating new pages (generally)
 You can either create pages with any styling language Jekyll can process. Use existing pages as examples.
