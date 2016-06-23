@@ -36,7 +36,7 @@ UmaiUme is still in development.
 
 Here is a nice progress bar (roughly) specifying the progress:
 
-{% include progressbar.html percentage='15' %}
+{% include progressbar.html percentage='20' %}
 
 To see more exact news concerning the development, visit the *Dev news* page.
 

@@ -2,17 +2,16 @@
 
 <div class="jumbotron" style="margin-top: -10px;">
 	<div class="container">
-		<img src="{{ site.baseurl }}/images/logo.svg" style="width: auto; height: 150px; margin-left: -10px;" />
-		<div>
-			{% capture intro %}{% include intro.md %}{% endcapture %}
-			{{ intro | markdownify }}
+		<div class="row"><img src="{{ site.baseurl }}/images/logo.svg" class="img-responsive"/></div>
+		<div class="row">
+			{% capture intro %}{% include intro.md %}{% endcapture %} {{ intro | markdownify }}
 		</div>
 	</div>
 </div>
 <div class="container">
-    <div class="row">
+	<div class="row">
 		{{ content }}
-    </div>
+	</div>
 </div>
 
 {% include footer.html %}

@@ -49,7 +49,7 @@ Loading Patchers
 
 And you're done! Note again, that `<NAME>` is the name of the patcher configuration. If you don't have one, you can always check the [previous chapter](04_game_configurations.html) that explains how to get one or how to create such a file.
 
-ReiPatcher creates a backup of each assembly it patches and saves it in the same folder as the patched assembly. If you want to patch the last backed-up version of assembly, use the `-fc` switch instead of `-c` when using ReiPatcher.
+ReiPatcher creates a backup of each assembly it patches and saves it in the same folder as the patched assembly. If you want to patch the last backed-up version of assembly, use the `-r` switch instead of `-c` when using ReiPatcher.
 
 ### Creating a batch file
 

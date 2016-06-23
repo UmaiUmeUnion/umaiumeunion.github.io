@@ -2,28 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>
-	  {{ site.name }}{% if page.pretitle != '' %} - {{ page.pretitle }}{% endif %}{% if page.title != '' %}: {{ page.title }}{% endif %}
+	<meta charset="UTF-8">
+	<title>
+		{{ site.name }}{% if page.pretitle != '' %} - {{ page.pretitle }}{% endif %}{% if page.title != '' %}: {{ page.title }}{% endif %}
 	</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
-    <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="{{ site.baseurl }}/js/jquery.min.js"></script>
+	<script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 	<script src="{{ site.baseurl }}/js/anchor.min.js"></script>
-    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet">
-	<link href="{{ site.baseurl }}/css/pygments/default.css" rel="stylesheet">
-	{% if include.devnews %}
-	<link href="{{ site.baseurl }}/css/theme_devnews.css" rel="stylesheet">
-	{% endif%}
+	<link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet">
+	<link href="{{ site.baseurl }}/css/pygments/default.css" rel="stylesheet"> {% if include.devnews %}
+	<link href="{{ site.baseurl }}/css/theme_devnews.css" rel="stylesheet"> {% endif%}
 	<script>
 	$(function(){	
-		$(".nav").children().hover(function(){
+		$(".navbar-nav").children().hover(function(){
 			$(this).addClass("active");
 		},
 		function(){
 			$(this).removeClass("active");
 		});
+		
 		//{% if include.anchor %}
 		anchors.add('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
 		//{% endif %}
@@ -39,41 +38,47 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ site.baseurl }}/">
-					<img alt="{{ site.name }}" src="{{ site.baseurl }}/images/brand.svg" />
-				</a>
-              </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ site.baseurl }}/">Home</a></li>
-					<li><a href="{{ site.baseurl }}/devnews">Dev news</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guides <span class="caret"></span></a>
-						<ul class ="dropdown-menu">
-							<li><a href="{{ site.baseurl}}{{ site.guides_reipatcher[0].url}}">ReiPatcher</a></li>
-							<li><a href="{{ site.baseurl}}{{ site.guides_unityinjector[0].url}}">UnityInjector</a></li>
-							<li><a href="#">Mono.Cecil (Coming soon)</a></li>
-							<li><a href="#">SB3Utility (Coming soon)</a></li>
+						<a class="navbar-brand" href="{{ site.baseurl }}/">
+							<img alt="{{ site.name }}" src="{{ site.baseurl }}/images/brand.svg" />
+						</a>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="{{ site.baseurl }}/">Home</a></li>
+							<li><a href="{{ site.baseurl }}/devnews">Dev news</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guides<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="{{ site.baseurl}}{{ site.guides_reipatcher[0].url}}">ReiPatcher</a></li>
+									<li><a href="{{ site.baseurl}}{{ site.guides_unityinjector[0].url}}">UnityInjector</a></li>
+									<li><a href="#">Mono.Cecil (Coming soon)</a></li>
+									<li><a href="#">SB3Utility (Coming soon)</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UmaiUme Tools<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="{{site.baseurl}}/tools/uulauncher/">UmaiUme Launcher</a></li>
+								</ul>
+							</li>
+							<li><a href="{{ site.baseurl }}/about.html">About</a></li>
+							{% if site.github != '' %}
+							<li><a href="https://github.com/{{ site.github }}">Github</a></li>
+							{% endif %}
 						</ul>
-					</li>
-                    <li><a href="{{ site.baseurl }}/about.html">About</a></li>
-					{% if site.github != '' %}
-                      <li><a href="https://github.com/{{ site.github }}">Github</a></li>
-                    {% endif %}
-                </ul>
-              </div>
-        </div>
-        </div>
-    </div>
-</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

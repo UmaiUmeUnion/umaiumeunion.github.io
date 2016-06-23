@@ -4,6 +4,27 @@ body {
     font-size: 15px;
 }
 
+.panel {
+	border-radius: 0px 0px 4px 4px;
+	border-top: none;
+}
+
+.carousel-bg-custom-left {
+	background-image: -webkit-linear-gradient(left,rgba(238,238,238,.5) 0,rgba(238,238,238,.0001) 100%) !important;
+    background-image: -o-linear-gradient(left,rgba(238,238,238,.5) 0,rgba(238,238,238,.0001) 100%) !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(238,238,238,.5)),to(rgba(238,238,238,.0001))) !important;
+    background-image: linear-gradient(to right,rgba(238,238,238,.5) 0,rgba(238,238,238,.0001) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80eeeeee', endColorstr='#00eeeeee', GradientType=1) !important;
+}
+
+.carousel-bg-custom-right {
+	background-image: -webkit-linear-gradient(left,rgba(238,238,238,.0001) 0,rgba(238,238,238,.5) 100%) !important;
+    background-image: -o-linear-gradient(left,rgba(238,238,238,.0001) 0,rgba(238,238,238,.5) 100%) !important;
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(238,238,238,.0001)),to(rgba(238,238,238,.5))) !important;
+    background-image: linear-gradient(to right,rgba(238,238,238,.0001) 0,rgba(238,238,238,.5) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00eeeeee', endColorstr='#80eeeeee', GradientType=1) !important;
+}
+
 .well h2 {
 	font-size: 25px;
 }
@@ -85,6 +106,11 @@ div.sidebar > ol{
 
 .alert-warning {
 	border-left-color: #8a6d3b;
+}
+
+.alert-danger {
+	border-left-color: #ce4844;
+	color:#ce4844;
 }
 
 .copyright {

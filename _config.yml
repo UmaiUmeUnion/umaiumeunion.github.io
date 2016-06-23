@@ -9,6 +9,8 @@ collections:
      output: true
     guides_unityinjector:
      output: true
+    tools:
+     output: true
 
 defaults:
  - 
@@ -31,6 +33,13 @@ defaults:
    values:
      layout: "guide"
      pretitle: "UnityInjector Guide"
+ - 
+   scope:
+    path: ""
+    type: "tools"
+   values:
+     layout: "tools"
+     pretitle: "UmaiUme Tools"
  -
    scope:
     path: ""

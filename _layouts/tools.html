@@ -1,0 +1,153 @@
+{% include header.html %}
+<!-- -->
+{% capture description %}{% include_relative description.md %}{% endcapture %}
+<!-- -->
+{% capture usage%}{% include_relative usage.md %}{% endcapture %}
+
+<script>
+    $(function(){
+        $("#tabs a").click(function(e){
+            e.preventDefault();
+            $(this).tab("show");
+        });
+
+        // {% if page.project != '' %}
+        $.ajax("https://api.github.com/repos/{{site.github}}/{{page.project}}/releases", {
+            dataType: "json",
+            success: function(data, status, jqXHR){
+                console.log(data);
+                if(data.length == 0){
+                    $("div#download-button").remove();
+                    $("#changelog").remove();
+                    $("#changelog-tab").remove();
+                    $("#no-data-error").removeClass("hidden");                
+                }
+                else
+                    $("div#download-button").removeClass("hidden");    
+
+                var changelog = $("#changelog");
+                var changelogs = new Array();
+                $("a#download-latest").attr("href", data[0].assets[0].browser_download_url).html("Download (" + data[0].name + ')');
+                changelogs.push("<h3>" + data[0].name + "</h3>" + "<pre>" + data[0].body + "</pre>\n");
+
+                if(data.length > 1){
+                    var versions = new Array();
+                    for(i = 1; i < data.length; i++){
+                        var version = data[i];
+                        versions.push("<li><a href=\"" + version.assets[0].browser_download_url + "\">" + version.name + "</a></li>");
+                        changelogs.push("<h3>" + version.name + "</h3>" + "<pre>" + version.body + "</pre>\n");
+                    }
+                    $("ul#download-previous-versions").append(versions);
+                }else{
+                    $(".download-dropdown").remove();
+                }
+                changelog.append(changelogs);
+            },
+            error: function(jqXHR, status, error){
+                $("div#download-button").remove();
+                $("#changelog").remove();
+                $("#changelog-tab").remove();
+                $("#no-data-error").removeClass("hidden");
+            }
+        });
+        // {% endif %}
+    });
+</script>
+
+<div class="jumbotron" style="margin-top: -10px">
+    <div class="container">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-5">
+                {% if page.thumbs != '' and page.thumbs.size > 0 %} {% if page.thumbs.size == 1 %}
+                <img class="img-responsive" style="margin-left: auto;" src="./thumbs/{{page.thumbs[0]}}" alt="Thumbnail" />{% else %}
+                <div id="carousel-thumbs" class="carousel slide" data-ride="carousel" data-wrap="true">
+                    <ol class="carousel-indicators">
+                        {% for thumb in page.thumbs %}
+                        <li data-target="#carousel-thumbs" data-slide-to="{{forloop.index0}}" {% if forloop.index0==0 %} class="active" {% endif %}></li>
+                        {% endfor %}
+                    </ol>
+
+                    <div class="carousel-inner" role="listbox">
+                        {% for thumb in page.thumbs %}
+                        <div class="item {% if forloop.index0 == 0 %} active {% endif %}">
+                            <img src="./thumbs/{{thumb}}" alt="thum{{forloop.index0}}">
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <a class="left carousel-control carousel-bg-custom-left" href="#carousel-thumbs" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control carousel-bg-custom-right" href="#carousel-thumbs" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                {% endif %} {% endif %}
+            </div>
+            <div class="col-md-7">
+                {{content}}
+                <div id="no-data-error" class="hidden">
+                    <div class="alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Note:</span>
+                        <span class="alert-text">
+                        <b>Could not retreive release information.</b>
+                        <p style="font-size: 1em; margin-bottom: 0; font-weight: normal;">The download link and changelogs are not available.</p>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 col-md-offset-5">
+                <div class="btn-toolbar" role="toolbar">
+                    <div id="download-button" class="btn-group btn-group-lg hidden">
+                        <a id="download-latest" href="#" type="button" class="btn btn-primary">Download</a>
+                        <button type="button" class="btn btn-primary dropdown-toggle download-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                    <span class="caret download-dropdown"></span>
+                    <span class="sr-only download-dropdown">Toggle Dropdown</span>
+                </button>
+                        <ul id="download-previous-versions" class="download-dropdown dropdown-menu"></ul>
+                    </div>
+                    <div class="btn-group btn-group-lg" style="margin-left: 20px;" role="group">
+                        <a href="https://github.com/{{site.github}}/{{page.project}}" type="button" class="btn btn-primary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="tabs" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+                <li role="presentation"><a href="#usage" aria-controls="usage" role="tab" data-toggle="tab">How to use</a></li>
+                {% if page.project != '' %}
+                <li id="changelog-tab" role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab">Changelog</a></li>
+                {% endif %}
+            </ul>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="description">
+                            {{ description | markdownify }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="usage">
+                            {{ usage | markdownify }}
+                        </div>
+                        {% if page.project != '' %}
+                        <div role="tabpanel" class="tab-pane" id="changelog"></div>
+                        {% endif %}                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}
