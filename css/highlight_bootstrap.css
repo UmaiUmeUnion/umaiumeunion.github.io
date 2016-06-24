@@ -1,0 +1,30 @@
+.highlight pre.lineno {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    width: 25px;
+    color: rgba(0,0,0,0.3);
+}
+
+.highlight td.gutter.gl{
+    border-right: 1px solid #E0E0E0;
+    table-layout: fixed;
+    width: 30px;
+}
+
+.highlight>pre{
+    padding: 0;
+}
+
+.highlight table{
+    margin: 0;
+    border: none;
+}
+
+.highlight td{
+    padding: 0 !important;
+}
+
+.highlight td.code pre{
+    border: none;
+}

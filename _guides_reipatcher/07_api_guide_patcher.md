@@ -16,7 +16,7 @@ The project itself can contain any classes possible, but ReiPatcher will only pr
 ## The `PatchBase` class
 All the interaction between ReiPatcher and the patcher is done through the `PatchBase` class. Thus a generic patcher class usually looks as follows:
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 using ReiPatcher;
@@ -69,7 +69,7 @@ The assembly requesting and loading should be done in the `PrePatch()` method. R
 
 As an example, we shall request an assembly named `Assembly-CSharp.dll` and load an assembly called `SomeOtherAssembly.dll`.
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 private AssemblyDefinition hookAssembly;
 
 public override void PrePatch()
@@ -103,7 +103,7 @@ Since different patchers may request different assemblies, ReiPatcher must deter
 
 Continuing with the example, we use `GetPatchedAttributes` method found in `PatchBase` and LINQ to check that our patch hasn't been applied yet and a simple name comparison to check whether we need to patch the specified assembly.
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 public override CanPatch(PatcherArguments args)
 {
     return args.Assembly.Name.Name == "Assembly-CSharp" 

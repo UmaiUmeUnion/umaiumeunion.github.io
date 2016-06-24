@@ -26,7 +26,7 @@ After the patcher has been placed in its appropriate folder, do the following:
 
 Observe the output. If everything went well, you will get the following output (*Lines prefixed with `#` are comments and are different depending on the installed patchers*):
 
-{% highlight console %}
+{% highlight winconsole %}
 ReiPatcher 0.9.0.8
 .NET Assembly Patcher - Powered by Mono.Cecil
 Copyright © Usagirei 2015

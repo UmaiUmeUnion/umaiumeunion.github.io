@@ -53,7 +53,7 @@ Assuming the hook classes are placed in a separate project (and therefore a sepa
 
 The structure of the project is not well defined and may depend on the mod. However, most of the hook projects contain static hook methods the call to which will be injected into the game's method of interest through the patcher. As an example, here is a possible structure of a single hook class located in the hook DLL:
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 namespace GAME.MyPlugin.Hook
 {
     public class CustomEventArgs : EventArgs
@@ -101,7 +101,7 @@ Next, the methods should be linked to the target assemblies using the patcher mo
 
 In this particular example, let us consider that `Assembly-CSharp.dll` has a class `Bar` found in the `Foos` namespace. Let us further assume that the class contains a non-static method `Baz(int a, byte b)` and we want to add a call to a `MyOtherHook(int a, byte b)` method in such a way that the hook method receives the parameters of `Baz(int a, byte b)`. The `Patch` method in the patcher will the look something like this (for example):
 
-{% highlight csharp %}
+{% highlight csharp linenos %}
 public override void Patch(PatcherArguments args)
 {
     // Load type definition for Bar

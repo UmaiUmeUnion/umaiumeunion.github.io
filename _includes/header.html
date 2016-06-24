@@ -12,7 +12,8 @@
 	<script src="{{ site.baseurl }}/js/anchor.min.js"></script>
 	<link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet">
-	<link href="{{ site.baseurl }}/css/pygments/default.css" rel="stylesheet"> {% if include.devnews %}
+	<link href="{{ site.baseurl }}/css/highlight.css" rel="stylesheet">
+	<link href="{{ site.baseurl }}/css/highlight_bootstrap.css" rel="stylesheet"> {% if include.devnews %}
 	<link href="{{ site.baseurl }}/css/theme_devnews.css" rel="stylesheet"> {% endif%}
 	<script>
 	$(function(){	
@@ -26,13 +27,12 @@
 		//{% if include.anchor %}
 		anchors.add('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
 		//{% endif %}
-		$("code.language-console").parent().css({
+		$("code.language-winconsole").parent().css({
 			backgroundColor: "#000000"
 		});
-		$("code.language-console>span.go").css({
+		$("code.language-winconsole").css({
 			color: "#C0C0C0"
 		});
-		$("code.language-console>span.gp").remove();
 	});
 	</script>
 </head>

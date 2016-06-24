@@ -30,7 +30,7 @@ However, in order to see the output we need to run it from the command prompt. T
 
 As a result, you will most likely get the following help screen:
 
-{% highlight console %}
+{% highlight winconsole %}
 ReiPatcher 0.9.0.8
 .NET Assembly Patcher - Powered by Mono.Cecil
 Copyright © Usagirei 2015

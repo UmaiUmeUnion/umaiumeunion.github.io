@@ -54,7 +54,6 @@ paginate_path: /devnews/page:num/
 permalink: /devnews/:year/:month/:title
 paginate: 5
 
-highlighter: pygments
 markdown: kramdown
 kramdown:
    input: GFM
@@ -63,3 +62,5 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "smart", "lax_spacing"]
 
 exclude: ['README.md', 'LICENSE']
+
+gems: [jekyll-paginate]
